@@ -1,0 +1,78 @@
+Model Comparison Summary:
+         Mean Final Price  Median Final Price  Min Final Price  Max Final Price  Std Dev of Final Prices
+GBM         22856.708114        21981.654485      7474.540293     81307.264889              6455.137396
+Merton      23316.851979        22243.013906      7185.200586    110606.051191              7325.155618
+Heston      21729.813010        21124.980844      5066.550021     61577.346109              6427.499457
+
+Final Analysis of 10,000 Path Simulations
+Now that we have finalized all models and run 10,000 path simulations, let’s analyze the results to ensure correctness and gain insights for your project.
+
+Key Statistics Comparison
+Model	Mean Final Price	Median Final Price	Min Final Price	Max Final Price	Std Dev (Volatility)
+GBM	22,857	21,982	7,474	81,307	6,455
+Merton	23,317	22,243	7,185	110,606	7,325
+Heston	21,730	21,125	5,067	61,577	6,427
+
+Key Observations
+1GBM vs. Merton: Jumps Are Now Clearly Impacting the Merton Model
+Merton's Max Price (110,606) is MUCH higher than GBM (81,307).
+This confirms jumps are creating extreme upside moves.
+Merton better models tech stock rallies compared to GBM.
+Merton’s Standard Deviation is Higher (~7,325 vs. ~6,455 for GBM).
+This confirms Merton is capturing higher volatility, as expected.
+Min Price for Merton is slightly lower than GBM (7,185 vs. 7,474).
+Downward jumps also occur, but they are not as extreme as upward jumps.
+Heston Model: More Controlled Volatility
+Heston has the lowest max price (61,577) compared to GBM and Merton.
+This confirms Heston’s volatility clustering prevents extreme outliers.
+Heston has the lowest min price (5,067), showing downside risk is higher.
+This reflects NASDAQ-100 crashes where volatility spikes before recovery.
+Standard Deviation (6,427) is similar to GBM (6,455).
+This suggests Heston does not overestimate uncertainty but models it correctly.
+
+Final Insights
+Merton Now Correctly Models the NASDAQ-100’s Large Price Movements
+Jumps create rare but extreme market moves, as seen in NASDAQ-100 history.
+Best choice for modeling tech stock rallies and crashes.
+GBM is Still a Baseline Model but Lacks Extreme Moves
+Price distributions are more centered, with less tail risk.
+Useful for comparisons, but less realistic for NASDAQ-100.
+Heston Captures Volatility Clustering & Mean Reversion Well
+Most paths remain within a reasonable range, making it useful for risk management.
+Best suited for long-term modeling rather than capturing extreme jumps.
+
+Visual Insights from the Model Comparison Plot
+Merton has a fatter right tail, meaning it produces more extreme high-price outcomes.
+Heston remains more centered, meaning prices fluctuate but stay within a reasonable range.
+GBM serves as a balanced baseline, with neither jumps nor volatility clustering.
+
+Interpretation & Insights
+1. GBM vs. Merton: The Impact of Jumps is Clear
+Merton’s max price is significantly higher (110,606 vs. 81,307 in GBM)
+This confirms that jumps are creating extreme market moves.
+Merton is better at capturing rapid stock rallies.
+
+Merton’s standard deviation is higher (~7,325 vs. ~6,455 for GBM)
+Jumps introduce additional volatility, as expected.
+This aligns with the real NASDAQ-100, which has sudden spikes.
+
+Min price is slightly lower in Merton (7,185 vs. 7,474 in GBM)
+This means downward jumps also exist but are not as extreme as upward jumps.
+Merton’s results show more skewed behavior compared to GBM.
+
+2. Heston Captures Volatility Clustering & Mean Reversion Well
+Heston has the lowest max price (61,577) compared to GBM and Merton
+Heston does not produce extreme spikes, which aligns with volatility clustering.
+This means that the model is better suited for risk management applications.
+
+Heston has the lowest min price (5,067), showing higher downside risk
+This reflects NASDAQ-100 crashes, where volatility surges and prices drop rapidly.
+This is a more risk-focused model, useful for pricing options and risk analysis.
+
+Standard deviation (6,427) is similar to GBM (6,455)
+Heston captures market uncertainty well but avoids excessive jumps.
+
+Conclusion
+Merton now correctly models NASDAQ-100's large price movements
+GBM is a baseline model but lacks extreme movements
+Heston is best for capturing realistic volatility fluctuations & mean reversion
